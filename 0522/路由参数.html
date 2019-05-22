@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="item in products" >
+            <!-- query对象 -->
+            <!-- <router-link :to="'/product?user=tom&id='+item.id"{{item.title}}></router-link> -->
+            <!-- params 对象 -->
+            <router-link :to="'/product/'+item.id">{{item.title}}</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="vue-router.js"></script>
+    <script>
+        var product={
+            //接收参数 this.$route.query.id {{this.$route.query.id}}
+            //接收参数 this.$route.params.id {{this.$route.params.id}}
+            template:'<div>我是产品</div>',
+            created() {
+                console.log(this.$route.query);
+                console.log(this.$route);
+            },
+        }
+        var router = new VueRouter({
+            routes:[
+                {
+                    path:'/product/:id',
+                    component:product
+                }
+            ]
+        })
+
+        new Vue({
+            el:'#app',
+            data:{
+                products:[
+                    {
+                        id:0,
+                        title:'thinkpad'
+                    },
+                    {
+                        id:1,
+                        title:'dell'
+                    },
+                    {
+                        id:2,
+                        title:'hp'
+                    },
+                    {
+                        id:3,
+                        title:'华硕'
+                    },
+                ]
+            },
+            router
+        })
+
+
+    </script>
+</body>
+</html>

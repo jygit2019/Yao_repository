@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: aqua;
+        }
+        .aa{
+            font-size: 30px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:title="title">今天星期一</p>
+        <p class="box" :class="font">段落</p>
+        
+        <button disabled>按钮</button>
+        <button :disabled="hhh">按钮</button>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                title:'i love you',
+                font:'aa',
+                hhh:false
+            }
+        })
+    </script>
+</body>
+</html>

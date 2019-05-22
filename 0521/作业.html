@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div class="main">
+            <!-- 标题 -->
+            <ul class="title">
+                <li v-for="item in titles" @click="changeTab(item.id)">{{item.id}}</li>
+            </ul>
+            <!-- 内容 -->
+            <div class="content">
+                {{content}}
+            </div>
+        </div>
+    </div>
+
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                curId:0,
+                content:'小米内容',
+                titles:[
+                    {
+                        id:0,
+                        title:'小米'
+                    },
+                    {
+                        id:1,
+                        title:'HUAWEI'
+                    },
+                    {
+                        id:2,
+                        title:'OPPO'
+                    },
+                    {
+                        id:3,
+                        title:'VIVO'
+                    }
+                ],
+                contents:[
+                    {
+                        content:'小米内容'
+                    },
+                    {
+                        content:'HUAWEI内容'
+                    },
+                    {
+                        content:'OPPO内容'
+                    },
+                    {
+                        content:'VIVO内容'
+                    }
+                ]
+            },
+            methods: {
+                changeTab(id){
+                    //获得点击的标题ID
+                    
+                }
+            },
+        })
+    </script>
+</body>
+</html>

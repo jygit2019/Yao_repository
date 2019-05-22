@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父到子</title>
+    <style>
+        .red{
+            background: #f00;
+        }
+        .blue{
+            background: #00f;
+        }
+        .green{
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <child :fa="bg"></child>
+        <child></child>
+        <child></child>
+        <child></child>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        var child={
+            //props:['fa'],
+            props:{
+                fa:{
+                    type:String,
+                    default:'red'
+                }
+            },
+            template:'<div :class="fa">我是子组件{{fa}}</div>'
+        }
+        new Vue({
+            el:'#app',
+            data:{
+                bg:'green'
+            },
+            components:{
+                child
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: aqua;
+        }
+        .font{
+            font-size: 30px;
+        }
+        .font2{
+            font-size: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class="{bg:bg1,font:font1}">我是内容1</div>
+        <div :class="[bg2,font2]">我是内容2</div>
+
+        <div style="background: blue;color: chartreuse">我是内容3</div>
+        <div :style="{background: bg3,color: color3}">我是内容3</div>
+        
+        <div :style="[bg4,color4]">我是内容4</div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                bg1:true,
+                font1:false,
+                bg2:'bg',
+                font2:'font2',
+                bg3:'blue',
+                color3:'white',
+                bg4:{background:'blue',fontSize:'30px'},
+                color4:{color:'white'}
+            }
+        })
+    </script>
+</body>
+</html>

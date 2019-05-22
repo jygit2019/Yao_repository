@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="str=='ok'">OK啦</div>
+    
+        <div v-if="Math.random()>0.5">我过半了</div>
+        <div v-else>小于0.5</div>
+
+        <div v-if="str2.length==0">我是空字符串</div>
+        <div v-else>我不是空字符串</div>
+
+        <div v-if="type=='A'">A</div>
+        <div v-else-if="type=='B'">B</div>
+        <div v-else-if="type=='C'">C</div>
+        <div v-else-if="type=='D'">D</div>
+        <div v-else>都不是</div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                str:'ok',
+                str2:'',
+                type:'C'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 3.用子 -->
+        <child1></child1>
+        <child2></child2>
+        <child2></child2>
+    </div>
+    <script src="vue.min.js"></script>
+    <script>
+        //1.生子
+        var child1={
+            template:'<div>我是子组件1</div>'
+        }
+        var child2={
+            template:'<div @click="setNum(88)">我是子组件2---------{{num}}</div>',
+            data() {
+                return {
+                    num:3
+                }
+            },
+            methods: {
+                setNum(x){
+                    this.num=x;
+                }
+            },
+        }
+        new Vue({
+            el:'#app',
+            //2.挂子
+            components:{
+                child1,child2
+            }
+        })
+    </script>
+</body>
+</html>
